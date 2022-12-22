@@ -2,7 +2,19 @@
 # define CONTACT_HPP
 
 #include <string>
-#include <iostrem>
+#include <string.h>
+#include <stdlib.h>
+#include <iostream>
+#include <unistd.h>
+
+/* COLORS */
+
+# define BLUE	"\033[0;34m"
+# define CYAN	"\033[0;36m"
+# define RED	"\033[0;31m"
+# define YELLOW	"\033[0;33m"
+# define GREEN	"\033[1;32m"
+# define RESET	"\033[0m"
 
 typedef std::string	str;
 
@@ -13,7 +25,6 @@ class Contact {
 		str	nick;
 		str	number;
 		str	secret;
-		str	searchFor(str name);
 
 	public:
 		Contact();
@@ -23,6 +34,11 @@ class Contact {
         void	setNick(str	nick);
         void	setNumber(str number);
         void	setSecret(str secret);
+		str	getFirstName(void);
+        str	getLastName(void);
+        str	getNick(void);
+        str	getNumber(void);
+        str	getSecret(void);
 };
 
 #endif

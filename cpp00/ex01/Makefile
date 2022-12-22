@@ -1,6 +1,6 @@
 ########## 		   NAMES 		##########
 
-NAME = ex00
+NAME = ex01
 
 ########## 		  SOURCES 		##########
 
@@ -10,7 +10,9 @@ OBJ_DIR = objs
 
 OBJ_PATH = $(OBJ_DIR)/
 
-SRC = $(SRC_PATH)megaphone.cpp
+SRC = $(SRC_PATH)PhoneBook.cpp \
+	$(SRC_PATH)Contact.cpp \
+	$(SRC_PATH)main.cpp
 
 ########## 		  INCLUDES 		##########
 
@@ -26,7 +28,7 @@ CC = g++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-#MLC_FLAGS = -fsanitize=address
+MLC_FLAGS = -fsanitize=address
 
 ########## 		   COLORS 		##########
 
@@ -51,7 +53,7 @@ REMOVED_MSG = @echo "\n[ $(RED)$(NAME) removed$(RESET) ]\n"
 ########## 		  TARGETS 		##########
 
 ${NAME}: ${OBJ_DIR} ${OBJ}
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) 
+	$(CC) $(CFLAGS) $(MLC_FLAGS) $(OBJ) -o $(NAME) 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 

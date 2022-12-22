@@ -23,3 +23,23 @@ void    Contact::setNumber(str number) {
 void    Contact::setSecret(str secret) {
     this->secret = secret;
 }
+
+str    Contact::getFirstName(void) {
+    return (this->firstName);
+}
+
+str    Contact::getLastName(void) {
+    return (this->lastName);
+}
+
+str    Contact::getNick(void) {
+    return (this->nick);
+}
+
+str    Contact::getNumber(void) {
+    return (this->number);
+}
+
+str    Contact::getSecret(void) {
+    return (this->secret);
+}

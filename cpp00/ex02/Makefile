@@ -1,6 +1,6 @@
 ########## 		   NAMES 		##########
 
-NAME = ex00
+NAME = ex02
 
 ########## 		  SOURCES 		##########
 
@@ -10,7 +10,7 @@ OBJ_DIR = objs
 
 OBJ_PATH = $(OBJ_DIR)/
 
-SRC = $(SRC_PATH)megaphone.cpp
+SRC = 
 
 ########## 		  INCLUDES 		##########
 

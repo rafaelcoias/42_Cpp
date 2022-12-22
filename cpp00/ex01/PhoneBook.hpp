@@ -11,7 +11,6 @@ class PhoneBook {
 	public:
 		PhoneBook();
 		~PhoneBook();
-		Contact	get_Contact(int i);
 		void	addContact(void);
 		void	searchContact(void);
 		void	exit(void);
