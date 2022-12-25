@@ -1,6 +1,6 @@
 ########## 		   NAMES 		##########
 
-NAME = ex00
+NAME = megaphone
 
 ########## 		  SOURCES 		##########
 

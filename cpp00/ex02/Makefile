@@ -1,6 +1,6 @@
 ########## 		   NAMES 		##########
 
-NAME = ex02
+NAME = accounts
 
 ########## 		  SOURCES 		##########
 
@@ -10,7 +10,8 @@ OBJ_DIR = objs
 
 OBJ_PATH = $(OBJ_DIR)/
 
-SRC = 
+SRC = $(SRC_PATH)tests.cpp \
+	$(SRC_PATH)Account.cpp
 
 ########## 		  INCLUDES 		##########
 
@@ -20,11 +21,11 @@ HEAD = ./inc
 
 OBJ = $(patsubst %.cpp, %.o, $(subst $(SRC_PATH), $(OBJ_PATH), $(SRC)))
 
-CC = g++
+CC = c++
 
 ########## 		   FLAGS 		##########
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 #MLC_FLAGS = -fsanitize=address
 
@@ -51,12 +52,12 @@ REMOVED_MSG = @echo "\n[ $(RED)$(NAME) removed$(RESET) ]\n"
 ########## 		  TARGETS 		##########
 
 ${NAME}: ${OBJ_DIR} ${OBJ}
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) 
+	$(CC) $(FLAGS) $(OBJ) -o $(NAME) 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 $(OBJ_PATH)%.o:	$(SRC_PATH)%.cpp | $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -I $(HEAD) -c $(^) -o $(@)
+	@$(CC) $(FLAGS) -I $(HEAD) -c $(^) -o $(@)
 	@echo "$(YELLOW)[ Compiling $(subst .o,.cpp,$(notdir $@)) ]$(RESET)"
 
 ########## 		   RULES 		##########

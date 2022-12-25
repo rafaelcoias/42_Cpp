@@ -1,6 +1,6 @@
 ########## 		   NAMES 		##########
 
-NAME = ex01
+NAME = phonebook
 
 ########## 		  SOURCES 		##########
 
