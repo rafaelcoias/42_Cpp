@@ -1,6 +1,6 @@
 ########## 		   NAMES 		##########
 
-NAME = ex00
+NAME = brainz
 
 ########## 		  SOURCES 		##########
 
@@ -10,7 +10,10 @@ OBJ_DIR = objs
 
 OBJ_PATH = $(OBJ_DIR)/
 
-SRC = $(SRC_PATH)megaphone.cpp
+SRC = $(SRC_PATH)main.cpp \
+	$(SRC_PATH)Zombie.cpp \
+	$(SRC_PATH)newZombie.cpp \
+	$(SRC_PATH)randomChump.cpp \
 
 ########## 		  INCLUDES 		##########
 
