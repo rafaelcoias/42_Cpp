@@ -1,6 +1,6 @@
 ########## 		   NAMES 		##########
 
-NAME = ex00
+NAME = harlFilter
 
 ########## 		  SOURCES 		##########
 
@@ -10,7 +10,9 @@ OBJ_DIR = objs
 
 OBJ_PATH = $(OBJ_DIR)/
 
-SRC = $(SRC_PATH)main.cpp
+SRC = $(SRC_PATH)main.cpp \
+	$(SRC_PATH)Harl.cpp \
+
 
 ########## 		  INCLUDES 		##########
 
@@ -18,7 +20,8 @@ HEAD = ./inc
 
 ########## 		COMPILATION 	##########
 
-OBJ = $(patsubst %.cpp, %.o, $(subst $(SRC_PATH), $(OBJ_PATH), $(SRC)))
+OBJ = $(patsubst %.cpp, %.o, \
+	$(subst $(SRC_PATH), $(OBJ_PATH), $(SRC)))
 
 CC = g++
 
@@ -31,11 +34,11 @@ MLC_FLAGS = -fsanitize=address
 ########## 		   COLORS 		##########
 
 GREEN		=	\033[0;32m
-YELLOW	=	\033[0;33m
-RED		=	\033[0;31m
-BLUE_PISK		=	\033[0;34;5;199m
+YELLOW		=	\033[0;33m
+RED			=	\033[0;31m
+BLUE_PISK	=	\033[0;34;5;199m
 BLUE		=	\033[0;36m
-VIOLET	=	\033[0;38;5;199m
+VIOLET		=	\033[0;38;5;199m
 RESET		=	\033[0m
 
 ########## 		  COMMANDS		##########
@@ -57,7 +60,8 @@ $(OBJ_DIR):
 
 $(OBJ_PATH)%.o:	$(SRC_PATH)%.cpp | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -I $(HEAD) -c $(^) -o $(@)
-	@echo "$(YELLOW)[ Compiling $(subst .o,.cpp,$(notdir $@)) ]$(RESET)"
+	@echo "$(YELLOW)[ Compiling \
+	$(subst .o,.cpp,$(notdir $@)) ]$(RESET)"
 
 ########## 		   RULES 		##########
 

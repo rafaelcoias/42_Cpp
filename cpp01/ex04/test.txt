@@ -1,0 +1,4 @@
+this is a test,
+and a very good one
+if it does not pass the test
+i am going to be sed
