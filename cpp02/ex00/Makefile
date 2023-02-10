@@ -1,6 +1,6 @@
 ########## 		   NAMES 		##########
 
-NAME = ex00
+NAME = fixed
 
 ########## 		  SOURCES 		##########
 
@@ -10,7 +10,9 @@ OBJ_DIR = objs
 
 OBJ_PATH = $(OBJ_DIR)/
 
-SRC = $(SRC_PATH)main.cpp
+SRC = $(SRC_PATH)main.cpp \
+	$(SRC_PATH)Fixed.cpp \
+	
 
 ########## 		  INCLUDES 		##########
 
