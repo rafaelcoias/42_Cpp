@@ -1,6 +1,6 @@
 ########## 		   NAMES 		##########
 
-NAME = ex00
+NAME = clapTrap
 
 ########## 		  SOURCES 		##########
 
@@ -10,7 +10,8 @@ OBJ_DIR = objs
 
 OBJ_PATH = $(OBJ_DIR)/
 
-SRC = $(SRC_PATH)megaphone.cpp
+SRC = $(SRC_PATH)ClapTrap.cpp \
+	$(SRC_PATH)main.cpp
 
 ########## 		  INCLUDES 		##########
 

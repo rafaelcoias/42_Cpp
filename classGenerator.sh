@@ -29,6 +29,10 @@ if [[ -f $fileCpp ]]; then
     rm -f $fileCpp
 fi
 
+if [[ -f $fileCpp ]]; then
+    rm -f $fileCpp
+fi
+
 touch $fileHpp
 touch $fileCpp
 
@@ -39,6 +43,8 @@ echo "# define ${upper_class}_HPP" >> $fileHpp
 echo "" >> $fileHpp
 echo "# include <string>" >> $fileHpp
 echo "# include <iostream>" >> $fileHpp
+echo "" >> $fileHpp
+echo "typedef std::string	str;" >> $fileHpp
 echo "" >> $fileHpp
 echo "class $1 {" >> $fileHpp
 echo "  private:" >> $fileHpp
@@ -95,6 +101,8 @@ echo "#endif" >> $fileHpp
 
 echo "#include \"$fileHpp\"" >> $fileCpp
 echo "" >> $fileCpp
+echo "// CONSTRUCTORS" >> $fileCpp
+echo "" >> $fileCpp
 echo "$className::$className() {}" >> $fileCpp
 echo "" >> $fileCpp
 
@@ -124,9 +132,11 @@ echo "" >> $fileCpp
 # DECONSTRUCTOR
 
 echo "$className::~$className() {}" >> $fileCpp
-echo "" >> $fileCpp
-
 # GET AND SET FUNCTIONS
+
+echo "" >> $fileCpp
+echo "// SET & GET FUNCTIONS" >> $fileCpp
+echo "" >> $fileCpp
 
 for ARG in $@; do
     TYPE=$(echo $ARG | cut -d ':' -f1)
@@ -140,3 +150,7 @@ for ARG in $@; do
     echo "}" >> $fileCpp
     echo "" >> $fileCpp
 done
+
+echo "" >> $fileCpp
+echo "// FUNCTIONS" >> $fileCpp
+echo "" >> $fileCpp

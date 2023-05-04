@@ -1,6 +1,6 @@
 ########## 		   NAMES 		##########
 
-NAME = animal
+NAME = scavTrap
 
 ########## 		  SOURCES 		##########
 
@@ -10,10 +10,9 @@ OBJ_DIR = objs
 
 OBJ_PATH = $(OBJ_DIR)/
 
-SRC = $(SRC_PATH)main.cpp \
-	$(SRC_PATH)Animal.cpp \
-	$(SRC_PATH)Cat.cpp \
-	$(SRC_PATH)Dog.cpp \
+SRC = $(SRC_PATH)ClapTrap.cpp \
+	$(SRC_PATH)ScavTrap.cpp \
+	$(SRC_PATH)main.cpp
 
 ########## 		  INCLUDES 		##########
 
