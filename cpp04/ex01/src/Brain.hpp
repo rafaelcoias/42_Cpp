@@ -8,15 +8,13 @@ typedef std::string	str;
 
 class Brain {
   private:
-      str   *ideas;
+      str   ideas[100];
 
   public:
       Brain();
-      Brain(str *ideas);
+      Brain(const Brain &copy);
+      Brain &operator=(const Brain &copy);
       ~Brain();
-
-      str  *getIdeas(void);
-      void  setIdeas(str *ideas);
 };
 
 #endif

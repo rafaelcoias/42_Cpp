@@ -7,9 +7,13 @@ int main(int argc, char **argv) {
 
   const Animal* j = new Dog();
   const Animal* i = new Cat();
-
-  delete j;
+  delete j;//should not create a leak
   delete i;
-  
+
+  std::cout << "\n== TESTES ==\n";
+  Dog d;
+  {
+    Dog tmp = d;
+  }
   return 0;
 }

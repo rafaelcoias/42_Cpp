@@ -14,30 +14,38 @@ int main(int argc, char **argv) {
   // First tests
 
   c.attack(b.getName());
-  b.beRepaired(1);
+  b.beRepaired(2);
   b.attack(c.getName());
-  c.beRepaired(1);
+  c.beRepaired(2);
+
+  // Check status
+
+  std::cout << a.getName() << " has " << a.getHp() << " hp and " << a.getEnergy() << " of energy left." << std::endl;
+  std::cout << c.getName() << " has " << c.getHp() << " hp and " << c.getEnergy() << " of energy left." << std::endl;
+  std::cout << b.getName() << " has " << b.getHp() << " hp and " << b.getEnergy() << " of energy left." << std::endl;
+  b.beRepaired(3);
+
+  // Lose all Energy and Attack a lot
+
+	while (b.getHp() > 0)
+	{
+		c.attack(b.getName());
+		b.takeDamage(c.getDamage());
+		c.attack(b.getName());
+		if (b.getHp() > 0)
+			c.takeDamage(b.getDamage());
+	}
+
+  // Check status
+
+  std::cout << b.getName() << " has " << b.getHp() << " hp and " << b.getEnergy() << " of energy left." << std::endl;
+  std::cout << a.getName() << " has " << a.getHp() << " hp and " << a.getEnergy() << " of energy left." << std::endl;
+
 
   // Guard Gate
 
   c.guardGate();
 
-  // Lose all Energy
-
-  a.attack(b.getName());
-  a.attack(b.getName());
-  a.attack(b.getName());
-  a.attack(b.getName());
-  a.attack(b.getName());
-  a.attack(b.getName());
-  a.attack(b.getName());
-  a.attack(b.getName());
-  a.attack(b.getName());
-  a.attack(b.getName());
-  a.attack(b.getName());
-  a.attack(b.getName());
-  a.attack(b.getName());
-
-  b.beRepaired(1);
+  b.beRepaired(3);
   b.attack(a.getName());
 }

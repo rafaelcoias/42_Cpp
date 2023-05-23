@@ -4,24 +4,23 @@
 # include <string>
 # include <iostream>
 
-#include "Brain.hpp"
-
 typedef std::string	str;
 
 class Animal {
   private:
       str   type;
-      Brain *brain;
 
   public:
       Animal();
       Animal(str type);
-      ~Animal();
+      Animal(const Animal &copy);
+      Animal &operator=(const Animal &copy);
+      virtual ~Animal();
 
-      str  getType(void);
+      str  getType(void) const;
       void  setType(str type);
 
-      void  makeSound(void);
+      virtual void  makeSound(void) const;
 };
 
 #endif

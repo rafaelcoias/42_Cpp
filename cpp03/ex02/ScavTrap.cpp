@@ -21,6 +21,18 @@ ScavTrap::ScavTrap(str name) : ClapTrap(name) {
 	std::cout << "SlapTrap " << getName() << " created!" << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy) {
+	setType("ScavTrap");
+	std::cout << "ScavTrap " << getName() << " created with copy constructor!" << std::endl; 
+}
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &copy)
+{
+	ClapTrap::operator=(copy);
+	std::cout << "ScavTrap created with assignment operator!" << std::endl;
+	return (*this);
+}
+
 ScavTrap::~ScavTrap() {
 	std::cout << "SlapTrap " << getName() << " destroyed!" << std::endl;
 }

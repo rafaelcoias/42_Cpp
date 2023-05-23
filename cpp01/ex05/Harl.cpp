@@ -1,13 +1,13 @@
 #include "Harl.hpp"
 
 Harl::Harl() {
-    complains[0].complain = "debug";
+    complains[0].complain = "DEBUG";
     complains[0].level = &Harl::debug;
-    complains[1].complain = "info";
+    complains[1].complain = "INFO";
     complains[1].level = &Harl::info;
-    complains[2].complain = "warning";
+    complains[2].complain = "WARNING";
     complains[2].level = &Harl::warning;
-    complains[3].complain = "error";
+    complains[3].complain = "ERROR";
     complains[3].level = &Harl::error;
 }
 

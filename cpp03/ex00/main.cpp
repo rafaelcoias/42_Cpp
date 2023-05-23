@@ -18,6 +18,10 @@ int main(int argc, char **argv) {
   b.attack(c.getName());
   c.beRepaired(1);
 
+  std::cout << b.getName() << " has " << b.getHp() << " hp and " << b.getEnergy() << " of energy left." << std::endl;
+
+  b.beRepaired(1);
+
   // Lose all Energy
 
   a.attack(b.getName());
@@ -33,6 +37,10 @@ int main(int argc, char **argv) {
   a.attack(b.getName());
   a.attack(b.getName());
   a.attack(b.getName());
+
+  // Check status
+
+  std::cout << b.getName() << " has " << b.getHp() << " hp and " << b.getEnergy() << " of energy left." << std::endl;
 
   b.beRepaired(1);
   b.attack(a.getName());

@@ -13,6 +13,8 @@ class FragTrap : public ClapTrap {
   public:
       FragTrap();
       FragTrap(str name);
+      FragTrap(const FragTrap &copy);
+		  FragTrap &operator=(const FragTrap &copy);
       ~FragTrap();
 
       void highFivesGuys(void);

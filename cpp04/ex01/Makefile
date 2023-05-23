@@ -1,10 +1,10 @@
 ########## 		   NAMES 		##########
 
-NAME = animal
+NAME = brain
 
 ########## 		  SOURCES 		##########
 
-SRC_PATH = ./
+SRC_PATH = ./src/
 
 OBJ_DIR = objs
 
@@ -14,7 +14,7 @@ SRC = $(SRC_PATH)main.cpp \
 	$(SRC_PATH)Animal.cpp \
 	$(SRC_PATH)Cat.cpp \
 	$(SRC_PATH)Dog.cpp \
-	$(SRC_PATH)Brain.cpp \
+	$(SRC_PATH)Brain.cpp
 
 ########## 		  INCLUDES 		##########
 
@@ -28,7 +28,7 @@ CC = g++
 
 ########## 		   FLAGS 		##########
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address -std=c++98
 
 #MLC_FLAGS = -fsanitize=address
 

@@ -4,7 +4,7 @@ NAME = animal
 
 ########## 		  SOURCES 		##########
 
-SRC_PATH = ./
+SRC_PATH = ./src/
 
 OBJ_DIR = objs
 
@@ -14,6 +14,8 @@ SRC = $(SRC_PATH)main.cpp \
 	$(SRC_PATH)Animal.cpp \
 	$(SRC_PATH)Cat.cpp \
 	$(SRC_PATH)Dog.cpp \
+	$(SRC_PATH)WrongAnimal.cpp \
+	$(SRC_PATH)WrongCat.cpp 
 
 ########## 		  INCLUDES 		##########
 

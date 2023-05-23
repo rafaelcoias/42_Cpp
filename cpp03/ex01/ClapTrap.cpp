@@ -20,6 +20,27 @@ ClapTrap::ClapTrap(const str name) {
 	std::cout << getType() << " " << this->name << " created!" << std::endl;
 }
 
+ClapTrap::ClapTrap(const ClapTrap &copy)
+{
+	this->name = copy.name;
+	this->hp = copy.hp;
+	this->max_hp = copy.max_hp;
+	this->energy= copy.energy;
+	this->damage = copy.damage;
+	std::cout << "ClapTrap: copy constructor called!" << std::endl;
+}
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
+{
+	this->name = copy.name;
+	this->hp = copy.hp;
+	this->max_hp = copy.max_hp;
+	this->energy= copy.energy;
+	this->damage = copy.damage;
+	std::cout << "ClapTrap: Assignment operator called!" << std::endl;
+	return (*this);
+}
+
 ClapTrap::~ClapTrap() {
 	std::cout << getType() << " " << this->name << " destroyed!" << std::endl;
 }
@@ -90,6 +111,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 	std::cout << getType() << " " << getName() << " took " << amount << " points of damage!" << std::endl;
 	if (getHp() <= 0) {
 		std::cout << getType() << " " << getName() << " died!" << std::endl;
+		setHp(0);
 		return ;
 	}
 }

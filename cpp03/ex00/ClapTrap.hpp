@@ -18,6 +18,8 @@ class ClapTrap {
 		ClapTrap();
 		ClapTrap(str name);
 		~ClapTrap();
+		ClapTrap(const ClapTrap &copy);
+		ClapTrap &operator=(const ClapTrap &copy);
 
 		str  getName(void);
 		void  setName(const str name);

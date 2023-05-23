@@ -18,6 +18,8 @@ class ClapTrap {
 	public:
 		ClapTrap();
 		ClapTrap(str name);
+		ClapTrap(const ClapTrap &copy);
+		ClapTrap &operator=(const ClapTrap &copy);
 		~ClapTrap();
 
 		str  getName(void);

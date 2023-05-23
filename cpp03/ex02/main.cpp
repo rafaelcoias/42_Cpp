@@ -1,5 +1,4 @@
 #include "FragTrap.hpp"
-#include "ScavTrap.hpp"
 
 int main(int argc, char **argv) {
   (void)argc;
@@ -7,43 +6,53 @@ int main(int argc, char **argv) {
 
   // Create ClapTrap's
 
-  ClapTrap a = ClapTrap("Rafael");
-  ScavTrap b = ScavTrap("Rodrigo");
-  ScavTrap c = ScavTrap("Raquel");
-  FragTrap d = FragTrap("Ricardo");
-  FragTrap e;
+	FragTrap a("Ricardo");
+	FragTrap b (a);
+	FragTrap c;
+	FragTrap d("Rafael");
+
+  c = d;
 
   // First tests
 
-  d.attack(b.getName());
-  b.beRepaired(1);
-  d.attack(c.getName());
-  c.beRepaired(1);
+  c.attack(b.getName());
+  b.beRepaired(2);
+  b.attack(c.getName());
+  c.beRepaired(2);
 
-  // Guard Gate
+  // Check status
 
-  c.guardGate();
+  std::cout << a.getName() << " has " << a.getHp() << " hp and " << a.getEnergy() << " of energy left." << std::endl;
+  std::cout << c.getName() << " has " << c.getHp() << " hp and " << c.getEnergy() << " of energy left." << std::endl;
+  std::cout << b.getName() << " has " << b.getHp() << " hp and " << b.getEnergy() << " of energy left." << std::endl;
+  b.beRepaired(100);
 
-  // Guard Gate
+  for (int i = 0; i <= c.getEnergy() / 2; i++)
+		c.beRepaired(10);
 
-  d.highFivesGuys();
+  std::cout << c.getName() << " has " << c.getHp() << " hp and " << c.getEnergy() << " of energy left." << std::endl;
 
-  // Lose all Energy
+  // Lose all Energy and Attack a lot
 
-  a.attack(b.getName());
-  a.attack(b.getName());
-  a.attack(b.getName());
-  a.attack(b.getName());
-  a.attack(b.getName());
-  a.attack(b.getName());
-  a.attack(b.getName());
-  a.attack(d.getName());
-  a.attack(d.getName());
-  a.attack(d.getName());
-  a.attack(d.getName());
-  a.attack(d.getName());
-  a.attack(d.getName());
+	while (b.getHp() > 0)
+	{
+		c.attack(b.getName());
+		b.takeDamage(c.getDamage());
+		c.attack(b.getName());
+		if (b.getHp() > 0)
+			c.takeDamage(b.getDamage());
+	}
 
-  b.beRepaired(1);
-  d.attack(a.getName());
+  // Check status
+
+  std::cout << b.getName() << " has " << b.getHp() << " hp and " << b.getEnergy() << " of energy left." << std::endl;
+  std::cout << a.getName() << " has " << a.getHp() << " hp and " << a.getEnergy() << " of energy left." << std::endl;
+
+
+  // High Five guys
+
+  a.highFivesGuys();
+
+  b.beRepaired(3);
+  b.attack(a.getName());
 }

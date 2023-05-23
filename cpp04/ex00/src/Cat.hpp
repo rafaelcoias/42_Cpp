@@ -10,9 +10,11 @@ class Cat : public Animal {
 
   public:
       Cat();
-      ~Cat();
+      Cat(const Cat &copy);
+		  Cat &operator=(const Cat &copy);
+      virtual ~Cat();
 
-      void  makeSound(void);
+      virtual void  makeSound(void) const;
 };
 
 #endif

@@ -20,6 +20,19 @@ FragTrap::FragTrap(str name) : ClapTrap(name) {
 	std::cout << "FragTrap " << getName() << " created!" << std::endl;
 }
 
+FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)
+{
+	setType("FragTrap");
+	std::cout << "FragTrap " << getName() << " copy constructor called" << std::endl; 
+}
+
+FragTrap &FragTrap::operator=(const FragTrap &copy)
+{
+	ClapTrap::operator=(copy);
+	std::cout << "FragTrap assignment operator called" << std::endl;
+	return (*this);
+}
+
 FragTrap::~FragTrap() {}
 
 // SET & GET FUNCTIONS

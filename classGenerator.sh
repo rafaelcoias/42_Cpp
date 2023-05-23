@@ -77,8 +77,12 @@ for ARG in $@; do
         echo -n ", " >> $fileHpp
     fi
 done
-
 echo ");" >> $fileHpp
+
+# COPY AND OPERATOR ASSIGMENT CONSTRUCTORS
+echo "      $className(const $className &copy);" >> $fileHpp
+echo "      $className &operator=(const $className &copy);" >> $fileHpp
+
 echo "      ~$className();" >> $fileHpp
 echo "" >> $fileHpp
 
@@ -103,7 +107,9 @@ echo "#include \"$fileHpp\"" >> $fileCpp
 echo "" >> $fileCpp
 echo "// CONSTRUCTORS" >> $fileCpp
 echo "" >> $fileCpp
-echo "$className::$className() {}" >> $fileCpp
+echo "$className::$className() {" >> $fileCpp
+echo "  std::cout << \""Default $className constructor called\"" << std::endl;" >> $fileCpp
+echo "}" >> $fileCpp
 echo "" >> $fileCpp
 
 # CONSTRUCTORS W/ ALL ATRIBUTS
@@ -129,9 +135,23 @@ done
 echo "}" >> $fileCpp
 echo "" >> $fileCpp
 
+
+# COPY AND OPERATOR ASSIGMENT CONSTRUCTORS
+
+echo "$className::$className(const $className &copy) {" >> $fileCpp
+echo "  std::cout << \""Copy $className constructor called\"" << std::endl;" >> $fileCpp
+echo "}" >> $fileCpp
+
+echo "$className    &$className::operator=(const $className &copy) {" >> $fileCpp
+echo "  std::cout << \""Copy assigment operator $className called\"" << std::endl;" >> $fileCpp
+echo "}" >> $fileCpp
+
+
 # DECONSTRUCTOR
 
-echo "$className::~$className() {}" >> $fileCpp
+echo "$className::~$className() {" >> $fileCpp
+echo "  std::cout << \""$className destructer called\"" << std::endl;" >> $fileCpp
+echo "}" >> $fileCpp
 # GET AND SET FUNCTIONS
 
 echo "" >> $fileCpp
