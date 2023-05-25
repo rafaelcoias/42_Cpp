@@ -20,7 +20,7 @@ class Animal {
       str  getType(void) const;
       void  setType(str type);
 
-      virtual void  makeSound(void) const;
+      virtual void  makeSound(void) const = 0;
 };
 
 #endif
